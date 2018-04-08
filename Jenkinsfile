@@ -27,6 +27,6 @@ pipeline {
     }
   }
   triggers {
-    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'demo-jenkins-pipline-repos/test-a')
+    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'demo-jenkins-pipline-repos/test-*')
   }
 }
