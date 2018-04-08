@@ -23,6 +23,14 @@ pipeline {
     stage('stage3') {
       steps {
         sh 'echo step1'
+        script {
+          properties([
+            parameters([
+              string(name: 'test-a', defaultValue: 'undefined')
+            ])
+          ])
+        }
+
       }
     }
   }
