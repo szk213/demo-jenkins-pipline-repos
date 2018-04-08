@@ -27,6 +27,6 @@ pipeline {
     }
   }
   triggers {
-    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'demo-jenkins-pipline-repos/test-*')
+    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: "some_project/"+env.BRANCH_NAME.replaceAll("/", "%2F"))
   }
 }
