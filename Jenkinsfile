@@ -23,16 +23,10 @@ pipeline {
     stage('stage3') {
       steps {
         sh 'echo step1'
-        script {
-          properties([pipelineTriggers([upstream(
-            threshold: hudson.model.Result.SUCCESS,
-            upstreamProjects: "demo-jenkins-pipline-repos/test-a")])])
-          }
-
-        }
       }
     }
-    triggers {
-      upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'demo-jenkins-pipline-repos/test-a')
-    }
   }
+  triggers {
+    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'demo-jenkins-pipline-repos/test-a')
+  }
+}
