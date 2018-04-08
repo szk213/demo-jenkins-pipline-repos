@@ -24,14 +24,12 @@ pipeline {
       steps {
         sh 'echo step1'
         script {
-          properties([
-            parameters([
-              string(name: 'test-a', defaultValue: 'undefined')
-            ])
-          ])
-        }
+          properties([pipelineTriggers([upstream(
+            threshold: hudson.model.Result.SUCCESS,
+            upstreamProjects: "demo-jenkins-pipline-repos/test-a")])])
+          }
 
+        }
       }
     }
   }
-}
